@@ -1,0 +1,33 @@
+
+
+
+
+<div class="container-fluid p-4">
+    <div class="row mb-4">
+        <h4 class="col-auto">
+            Home
+        </h4>
+    </div>
+
+    <div class="row mb-4">
+
+        <div class="col">
+            <div class="text-center hero my-5" >
+                <h1 class="mb-4">Projects collection</h1>
+                <p class="lead" *ngIf="isLoggedin">
+                    Go to your projects to add and edit projects in your collection.<br/>
+                    <a href="" routerLink="/projects">Projects</a>
+                </p>
+                <p class="lead" *ngIf="!isLoggedin">
+                  Login to add and edit projects in your collection.<br/>
+                  <a href="" (click)="login();">Login</a>
+                </p>
+            </div>
+            
+            
+        </div>
+
+      
+
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container mt-5">
+    <ng-container *ngIf="error$ | async as error">
+      <h1>An error has occured</h1>
+      <p>Something went wrong.</p>
+      <div class="alert alert-danger" role="alert">
+        {{error.error_description}}
+      </div>
+    </ng-container>
+    </div>
+    

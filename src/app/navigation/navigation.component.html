@@ -1,0 +1,82 @@
+
+
+
+
+<div class="container-fluid p-0 p-sm-2 border-bottom bg-light">
+    <div class="d-flex justify-content-between">
+        
+        <div class="col-auto nav-link my-0 my-sm-0">
+            
+
+            <a class="btn" routerLink="/" >
+                <div class="d-none d-sm-inline">
+                    <i class="bi bi-house">&nbsp;</i><div class="d-none d-sm-inline">Home</div>
+                </div>
+                <div class="d-inline d-sm-none">
+                    <i class="bi bi-house"></i>
+                    <small class="d-block" style="margin-top: -0.5rem;"><small><small>Home</small></small></small>
+                </div>
+            </a>
+            <a class="btn" routerLink="/projects" *ngIf="isLoggedin">
+                <div class="d-none d-sm-inline">
+                    <i class="bi bi-collection">&nbsp;</i><div class="d-none d-sm-inline">Projects</div>
+                </div>
+                <div class="d-inline d-sm-none">
+                    <i class="bi bi-collection"></i>
+                    <small class="d-block" style="margin-top: -0.5rem;"><small><small>Projects</small></small></small>
+                </div>
+                
+            </a>
+        </div>
+
+
+
+        <div class="col-auto nav-link">
+            <a class="btn" routerLink="/profile" *ngIf="isLoggedin">
+                <div class="d-none d-sm-inline">
+                    <i class="bi bi-person">&nbsp;</i><div class="d-none d-sm-inline">Profile</div>
+                </div>
+                <div class="d-inline d-sm-none">
+                    <i class="bi bi-person"></i>
+                    <small class="d-block" style="margin-top: -0.5rem;"><small><small>Profile</small></small></small>
+                </div>
+                
+            </a>
+            <a class="btn" routerLink="/settings" *ngIf="isLoggedin">
+                <div class="d-none d-sm-inline">
+                    <i class="bi bi-gear">&nbsp;</i><div class="d-none d-sm-inline">Settings</div>
+                </div>
+                <div class="d-inline d-sm-none">
+                    <i class="bi bi-gear"></i>
+                    <small class="d-block" style="margin-top: -0.5rem;"><small><small>Settings</small></small></small>
+                </div>
+                
+            </a>
+            <a class="btn" (click)="openModal(content)" *ngIf="isLoggedin">
+                <i class="bi bi-box-arrow-right h4"></i>
+                <!--Logga ut-->
+            </a>
+            <a class="btn py-2" (click)="login()" *ngIf="!isLoggedin">
+                <i class="bi bi-box-arrow-in-left h4"></i>
+                <!--Logga in-->
+            </a>
+            
+        </div>
+
+
+    </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title"></h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Do youy want to logout?</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cancel</button>
+		<button type="button" class="btn btn-outline-danger" (click)="closeModal()">Logout</button>
+	</div>
+</ng-template>

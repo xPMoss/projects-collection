@@ -1,0 +1,75 @@
+
+
+<div class="container-fluid p-4">
+    <div class="mb-4">
+        <h4 class="col-auto">
+            Add project
+        </h4>
+    </div>
+
+    <div class="rowmb-4" *ngIf="!submitted">
+        <form>
+            <div class="form-group mb-4">
+              <label for="">Project name:</label>
+              <input type="text" class="form-control" #projectName placeholder="enter name" autocomplete="off" maxlength="50" required>
+              <small id="" class="form-text text-muted">Enter the projects name</small>
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="">Project Url</label>
+              <input type="url" class="form-control" #projectUrl placeholder="enter url" autocomplete="off" maxlength="100">
+              <small id="" class="form-text text-muted">Enter the projects url link</small>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Info:</label>
+                <textarea class="form-control" #projectInfo placeholder="enter some information about the project" autocomplete="off"></textarea>
+                <small id="" class="form-text text-muted">Enter project information</small>
+            </div>
+
+            <div class="form-group mb-4">
+                <input type="checkbox" class="form-check-input" #projectReadonly>
+                <label class="form-check-label ms-2" for="">Read only</label>
+                <br/><small id="" class="form-text text-muted">Lock project</small>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <div class="p-2 btn btn-outline-danger" (click)="location.back()">
+                    Cancel
+                </div>
+    
+                <div class="p-2 btn btn-outline-success" (click)="addProject(
+                    project = {
+                        name:projectName.value,
+                        url:projectUrl.value,
+                        info:projectInfo.value,
+                        readonly:projectReadonly.checked
+                      }
+                    )">
+                    Add
+                </div>
+            </div>
+            
+
+        </form>
+        
+        
+
+    </div>
+
+    <div class="row px-2 mb-4" *ngIf="submitted">
+        <div class="col">
+            Project added successfully!
+        </div>
+        
+
+        <div class="d-flex justify-content-end">
+            <div class="p-2 btn btn-outline-success" (click)="location.back()">
+                Ok
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
